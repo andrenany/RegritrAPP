@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       const f = this.loginForm.value;
       const usuarioString = localStorage.getItem('usuario');
+      this.router.navigate(['/home']);
 
       if (!usuarioString) {
         await this.presentAlert('Error', 'No hay usuarios registrados'); // Visualización de alerta

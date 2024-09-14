@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Variables
 $card-bg-color: rgba(0, 0, 0, 0.8);
 $text-color: white; // Color blanco para el texto general
@@ -151,11 +150,9 @@ ion-card {
   }
 }
 
-=======
-/* Centrar el contenedor en el centro del viewport */
->>>>>>> eb9c9a25cd4570e35d2333549dadd7f51cd764b9
 #container {
   text-align: center;
+
   position: absolute;
   left: 0;
   right: 0;
@@ -163,13 +160,11 @@ ion-card {
   transform: translateY(-50%);
 }
 
-/* Estilo para texto en negrita dentro del contenedor */
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
 
-/* Estilo para párrafos dentro del contenedor */
 #container p {
   font-size: 16px;
   line-height: 22px;
@@ -177,103 +172,6 @@ ion-card {
   margin: 0;
 }
 
-/* Estilo para enlaces dentro del contenedor */
 #container a {
   text-decoration: none;
 }
-<<<<<<< HEAD
-=======
-
-/* Estilo general para los botones */
-ion-button {
-  --border-radius: 20px; /* Bordes redondeados */
-  --padding-start: 16px; /* Espacio interno al inicio */
-  --padding-end: 16px; /* Espacio interno al final */
-}
-
-/* Estilo específico para los botones "Limpiar" y "Mostrar" */
-ion-button.action-button {
-  --background: black; /* Fondo negro para los botones */
-  --color: white; /* Texto blanco para los botones */
-}
-
-/* Ajustar el tamaño del card */
-ion-card {
-  max-width: 90%; /* Ajusta el tamaño máximo del card */
-  margin: 0 auto; /* Centra el card horizontalmente */
-  padding: 16px; /* Espacio interno del card */
-  border-radius: 12px; /* Bordes redondeados del card */
-  margin-top: 12px; /* Espacio superior del card */
-  margin-bottom: 12px; /* Espacio inferior del card */
-}
-
-/* Centrar el título del card */
-ion-card-header {
-  display: flex;
-  justify-content: center;
-}
-
-ion-card-title {
-  font-size: 1.2rem; /* Tamaño del texto del título */
-  text-align: center; /* Centrar texto */
-}
-
-/* Estilo para la barra de navegación en la parte inferior */
-ion-footer {
-  ion-toolbar {
-    --background: black; /* Fondo negro para el toolbar */
-  }
-
-  ion-tab-bar {
-    --background: black; /* Fondo negro para el tab-bar */
-    --color: white; /* Color blanco para los íconos y texto del tab-bar */
-  }
-
-  ion-tab-button {
-    --color: white; /* Color blanco para los íconos y texto del tab-button */
-  }
-}
-
-/* Centrar y animar el título RegistrApp en el encabezado */
-ion-header {
-  ion-toolbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    --background: black; /* Fondo negro para el toolbar */
-  }
-
-  ion-title {
-    font-size: 1.5rem;
-    color: white; /* Color blanco inicial para el título */
-    animation: colorChange 1s infinite; /* Llama a la animación colorChange */
-    text-align: center; /* Centrar el texto */
-  }
-}
-
-/* Animación para cambiar el color del título */
-@keyframes colorChange {
-  0% {
-    color: white;
-  }
-  50% {
-    color: lightblue;
-  }
-  100% {
-    color: white;
-  }
-}
-
-/* Ajustar el margen superior del formulario */
-.form-container {
-  width: 100%;
-  max-width: 400px; /* Ajusta el tamaño máximo */
-  margin-top: 80px; /* Ajusta el margen superior para separar el formulario */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrar horizontalmente el contenido del formulario */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para el contenedor del formulario */
-  border-radius: 8px; /* Bordes redondeados */
-  padding: 20px; /* Espacio interno */
-}
->>>>>>> eb9c9a25cd4570e35d2333549dadd7f51cd764b9

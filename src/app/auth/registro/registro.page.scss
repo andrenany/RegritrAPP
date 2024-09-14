@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Variables
 $card-bg-color: rgba(0, 0, 0, 0.8);
 $text-color: white; // Color blanco para el texto general
@@ -139,59 +139,3 @@ ion-card {
     width: 90%;
   }
 }
-=======
-/* Estilo general para el título en el encabezado */
-.header-title {
-    font-size: 1.5rem;
-    color: white; /* Color blanco inicial para el título */
-    animation: colorChange 1s infinite; /* Llama a la animación colorChange */
-    text-align: center; /* Centrar el texto */
-  }
-  
-  /* Animación para cambiar el color del título */
-  @keyframes colorChange {
-    0% {
-      color: white;
-    }
-    50% {
-      color: lightblue;
-    }
-    100% {
-      color: white;
-    }
-  }
-  
-  /* Ajustar el tamaño del card */
-  .card {
-    max-width: 90%; /* Ajusta el tamaño máximo del card */
-    margin: 0 auto; /* Centra el card horizontalmente */
-    padding: 16px; /* Espacio interno del card */
-    border-radius: 12px; /* Bordes redondeados del card */
-    margin-top: 16px; /* Espacio superior para el card */
-    margin-bottom: 16px; /* Espacio inferior para el card */
-  }
-  
-  /* Estilo específico para el botón "Registrarse" */
-  .register-button {
-    --background: black; /* Fondo negro para el botón */
-    --color: white; /* Texto blanco para el botón */
-    --border-radius: 20px; /* Bordes redondeados */
-  }
-  
-  /* Estilo para la barra de navegación en la parte inferior */
-  ion-footer {
-    ion-toolbar {
-      --background: black; /* Fondo negro para el toolbar */
-    }
-  
-    ion-tab-bar {
-      --background: black; /* Fondo negro para el tab-bar */
-      --color: white; /* Color blanco para los íconos y texto del tab-bar */
-    }
-  
-    ion-tab-button {
-      --color: white; /* Color blanco para los íconos y texto del tab-button */
-    }
-  }
-  
->>>>>>> eb9c9a25cd4570e35d2333549dadd7f51cd764b9

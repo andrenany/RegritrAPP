@@ -140,9 +140,5 @@ export class RegistroPage implements OnInit {
     this.estadoService.reiniciar();
   }
 
-  // Método para abrir el escáner QR
-  openScanner() {
-    // Implementar la lógica del escáner QR aquí
-    console.log('Escáner QR abierto');
-  }
+
 }

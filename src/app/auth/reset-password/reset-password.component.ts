@@ -1,19 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { AlertController, ModalController } from '@ionic/angular';
-
-export function passwordMatchValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
-    const group = control as FormGroup;
-    const newPassword = group.get('new_password');
-    const confirmPassword = group.get('confirm_password');
-
-    if (newPassword && confirmPassword && newPassword.value !== confirmPassword.value) {
-      return { 'passwordMismatch': true };
-    }
-    return null;
-  };
-}
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-reset-password',
@@ -21,58 +10,61 @@ export function passwordMatchValidator(): ValidatorFn {
   styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent implements OnInit {
+
   resetForm: FormGroup;
-  showPasswordFields: boolean = false;
+  usuarioVerificado: boolean = false;
 
   constructor(
+    private modalController: ModalController,
+    private router: Router,
     private fb: FormBuilder,
-    public alertController: AlertController,
-    private modalController: ModalController
+    public alertController: AlertController
   ) {
     this.resetForm = this.fb.group({
-      username: ['', Validators.required],
-      new_password: ['', [Validators.required, Validators.minLength(8)]],
-      confirm_password: ['', [Validators.required, Validators.minLength(8)]]
-    }, { validators: passwordMatchValidator() });
+      usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
+      nuevaPassword: ['', [Validators.required, Validators.minLength(4)]],
+      confirmacionPassword: ['', [Validators.required, Validators.minLength(4)]]
+    });
   }
 
   ngOnInit() {}
 
   async verificarUsuario() {
-    const username = this.resetForm.get('username')?.value;
-    const usuarioString = localStorage.getItem('usuario');
+    const f = this.resetForm.value;
+    const usuarioGuardado = JSON.parse(localStorage.getItem('usuario') || '{}');
 
-    if (usuarioString) {
-      const usuario = JSON.parse(usuarioString);
-      if (usuario.usuario === username) {
-        this.showPasswordFields = true;
-      } else {
-        await this.presentAlert('Usuario no encontrado', 'El usuario ingresado no existe.');
-      }
+    if (usuarioGuardado && f.usuario === usuarioGuardado.usuario) {
+      this.usuarioVerificado = true;
+
+      const successAlert = await this.alertController.create({
+        header: 'Usuario verificado',
+        message: 'El usuario ha sido verificado correctamente.',
+        buttons: ['Aceptar']
+      });
+
+      await successAlert.present();
     } else {
-      await this.presentAlert('Error', 'No hay usuarios registrados');
-    }
-  }
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'Usuario no encontrado o incorrecto.',
+        buttons: ['Aceptar']
+      });
 
-<<<<<<< HEAD
-  navigateTologin() {
-    this.router.navigate(['/login']); // Navegamos hacia la página del login
-    
+      await alert.present();
+    }
   }
 
   async guardarNuevaPassword() {
     const f = this.resetForm.value;
-=======
-  async onSubmit() {
+  
     if (this.resetForm.valid) {
-      const formValues = this.resetForm.value;
       const usuarioString = localStorage.getItem('usuario');
->>>>>>> eb9c9a25cd4570e35d2333549dadd7f51cd764b9
-
+  
       if (usuarioString) {
         let usuario = JSON.parse(usuarioString);
-        usuario.password = formValues.new_password;
+        usuario.password = f.nuevaPassword;  // Usamos el valor de la nueva contraseña ingresada
         localStorage.setItem('usuario', JSON.stringify(usuario));
+  
         await this.presentAlert('Éxito', 'La contraseña ha sido actualizada correctamente.');
         this.dismissModal();
       } else {
@@ -82,18 +74,20 @@ export class ResetPasswordComponent implements OnInit {
       await this.presentAlert('Formulario inválido', 'Por favor, complete todos los campos correctamente.');
     }
   }
-
+  
   async presentAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header: header,
       message: message,
       buttons: ['Aceptar']
     });
-
+  
     await alert.present();
   }
-
+  
   dismissModal() {
+    // Cerrar el modal
     this.modalController.dismiss();
   }
+  
 }
