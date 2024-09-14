@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary"></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding background-image">
+
+  <!-- Título principal -->
+  <h1 class="ion-text-center registrapp-text">RegistrApp</h1>
+  <p class="ion-text-center bienvenido-text">Bienvenido al login</p>
+
+  <!-- Card centrado con estilo de fondo negro transparente -->
+  <ion-card>
+    <ion-card-header>
+      <ion-title class="iniciar-sesion-text">Iniciar Sesión</ion-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="loginForm">
+        <ion-item lines="full">
+          <ion-label position="floating" class="form-label">Usuario</ion-label>
+          <ion-input formControlName="usuario" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating" class="form-label">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <br>
+        <!-- Enlace para recuperar la contraseña -->
+        <p class="ion-text-right ion-margin-horizontal">
+          <ion-text (click)="openResetPassword()" color="medium" class="olvidaste-text">¿Olvidaste la contraseña?</ion-text>
+        </p>
+
+        <!-- Botón de Ingresar -->
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button expand="full" (click)="ingresar()">Ingresar</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón de crear cuenta con animación de cambio de color -->
+  <ion-button expand="full" class="crear-cuenta-btn" (click)="navigateToregistro()">Crear una cuenta gratis</ion-button>
+
+  <!-- Íconos de redes sociales -->
+  <div class="social-icons">
+    <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
+    <ion-icon name="logo-twitter" class="social-icon"></ion-icon>
+    <ion-icon name="logo-google" class="social-icon"></ion-icon>
+  </div>
+</ion-content>
+
+<ion-modal
+  #forgot_pwd_modal
+  trigger="forgot-password"
+  cssClass="inline_modal"
+  [breakpoints]="[0.1, 0.5, 0.9]"
+  [initialBreakpoint]="0.5">
+  <ng-template>
+    <app-reset-password></app-reset-password>
+  </ng-template>
+</ion-modal>

@@ -1,0 +1,29 @@
+//ESTILOS PARA EL BOTON ANIMADO
+.boton-animado{
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    display: block;
+    //20px  top y button y centrado en left y right
+    margin: 20px auto;
+    text-align: center;
+    transition: background-color 0.3s ease;//transición suave
+}
+
+//ICONO ROTATIVO
+.icono-rotativo{
+    font-size: 50px;
+    color: #ff5722;
+    display: block;
+    margin: 20px auto;
+
+}
+
+//TARJETA
+.tarjeta-animada{
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    opacity: 0;
+    transform: translateX(-100%);
+}

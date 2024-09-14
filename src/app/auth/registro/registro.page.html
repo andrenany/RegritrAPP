@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary" class="header-title">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<<<<<<< HEAD
+<ion-content [fullscreen]="true" class="ion-padding background-image">
+  <ion-card>
+=======
+<ion-content>
+  <ion-card class="card">
+>>>>>>> eb9c9a25cd4570e35d2333549dadd7f51cd764b9
+    <ion-card-header class="ion-text-center">
+      <ion-title>Crear Usuario</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="registroForm">
+        <ion-item lines="full">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="usuario" type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Confirmar Contraseña</ion-label>
+          <ion-input formControlName="confirmacionPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <br>
+            <ion-button expand="full" class="register-button" (click)="guardar()">Registrarse</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <!-- Botón para "volver" -->
+        <ion-tab-button tab="volver" (click)="navigateTologin()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <ion-label>Volver</ion-label>
+        </ion-tab-button>
+        
+        <!-- Botón del corazón que incrementa el contador -->
+        <ion-tab-button tab="home" (click)="incrementarContador()">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-badge *ngIf="contador > 0">{{ contador }}</ion-badge>
+          <ion-label>I love it</ion-label>
+        </ion-tab-button>
+        
+        <!-- Botón de escanear QR -->
+        <ion-tab-button tab="scanner" (click)="openScanner()">
+          <ion-icon name="qr-code-outline"></ion-icon>
+          <ion-label>Escanear</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
